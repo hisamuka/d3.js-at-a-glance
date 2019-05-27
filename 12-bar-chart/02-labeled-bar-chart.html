@@ -57,7 +57,7 @@
 
             // we use d3.max() function to input our domain [0,max] value for y axis.
             yScale.domain([0, d3.max(data, d => d.value)]);
-            
+
             g.append("g")
              .attr("transform", "translate(0," + height + ")")
              .call(d3.axisBottom(xScale))
