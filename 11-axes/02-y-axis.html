@@ -1,0 +1,34 @@
+<!doctype html>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+
+<script>
+    var width = 400, height = 400;
+
+    var data = [10, 15, 20, 25, 30];
+
+    // Append SVG
+    let svg = d3.select("body")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+    let scale = d3.scaleLinear()
+                  .domain([d3.min(data), d3.max(data)])
+                  .range([height / 2, 0]);
+
+
+    // Add scales to axis
+    let y_axis = d3.axisLeft().scale(scale);
+
+    // Append group and insert axis.
+    // We then apply a translate transformation to align the y-axis to 50px right of the origin and 10px to the bottom of the origin.
+    // This ensures a better visual representation on the screen.
+    svg.append("g").attr("transform", "translate(50, 10)").call(y_axis);
+
+</script>
+</body>
+</html>

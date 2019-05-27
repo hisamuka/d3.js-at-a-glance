@@ -1,0 +1,41 @@
+<!doctype html>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+
+<script>
+    // The axes renders human-readable reference marks for scales.
+    // Graphs have two axes: the horizontal axis or the x-axis and the vertical axis or the y-axis.
+    //
+    // D3 provides functions to draw axes.
+    // An axis is made of lines, ticks and labels.
+    // An axis uses scale, so each axis will need to be given a scale to work with.
+
+    let width = 400,
+        height = 100;
+
+    let data = [10, 15, 20, 25, 30];
+
+    // Append SVG
+    let svg = d3.select("body")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+    // We create a linear scale and specify our domain and range.
+    // We have used d3.min and d3.max functions to get the minimum and maximum values from our dataset.
+    let scale = d3.scaleLinear()
+                  .domain([d3.min(data), d3.max(data)])
+                  .range([0, width - 100]); // specifies the range [0,300]. So value 10 will be map to 0 and value 300 woill be map to 30.
+
+    // Add scales to axis
+    let x_axis = d3.axisBottom().scale(scale);
+
+    //Append group and insert axis
+    svg.append("g").call(x_axis);
+
+</script>
+</body>
+</html>
