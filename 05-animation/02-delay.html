@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+
+
+    <script>
+        // The delay() function sets the delay parameter for each element in the selection on which the transition
+        // is applied.
+        // The transition will start after the specified delay value.
+        //
+        // We will animate two bars on their height with a linear ease.
+        // We will start with the first bar and increase its height from 20px to 100px.
+        // Next, we will animate the second bar the same way.
+        // But we will apply a delay of 2000 milliseconds on the second bar so that it is animated 2000 milliseconds after the first bar.
+
+        var svg = d3.select("body")
+            .append("svg")
+            .attr("width", 500)
+            .attr("height", 500);
+
+
+        var bar1 = svg.append("rect")
+            .attr("fill", "blue")
+            .attr("x", 100)
+            .attr("y", 20)
+            .attr("height", 20)
+            .attr("width", 10)
+
+        var bar2 = svg.append("rect")
+            .attr("fill", "blue")
+            .attr("x", 120)
+            .attr("y", 20)
+            .attr("height", 20)
+            .attr("width", 10)
+
+        update();
+
+        function update() {
+            bar1.transition()
+                .ease(d3.easeLinear)
+                .duration(2000)
+                .attr("height",100)
+
+            bar2.transition()
+                .ease(d3.easeLinear)
+                .duration(2000)
+                .delay(2000)
+                .attr("height",100)
+        }
+    </script>
+</body>
+</html>

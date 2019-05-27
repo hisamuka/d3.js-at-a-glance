@@ -1,0 +1,52 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        #container1, #container2 {
+            height: 100px;
+            width: 100px;
+            background-color: black;
+
+        }
+    </style>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+
+<body>
+    <div id="container1"></div>
+    <div id="container2"></div>
+
+    <script>
+        // D3 simplifies the process of animations with transitions.
+        // Transitions are made on DOM selections using <selection>.transition() method.
+        // The following table lists important methods for animation in D3.
+        //
+        // selection.transition() ==> this schedules a transition for the selected elements
+        // transition.duration() ==> duration specifies the animation duration in milliseconds for each element
+        // transition.ease() ==> ease specifies the easing function, example: linear, elastic, bounce
+        // transition.delay() ==> delay specifies the delay in animation in milliseconds for each element
+
+        // The d3.selection.transition() method indicates the start of transition and then different transition
+        // functions can be applied to the selected elements.
+
+        // We have created a div element called 'container1' and added a class to give it a height, width,
+        // and background color black.
+        // Now, we would like to create a transition to change the color from black to red.
+        // We use the transition() function to create the transition on the selected 'container1' element.
+        // We then called the duration() function to specify how long the transition should take place.
+        // In this case, we have specified a value of 1000 milliseconds.
+        d3.select("#container1")
+          .transition()
+          .duration(1000)
+          .style("background-color", "red");
+
+
+        var t = d3.transition()
+                  .duration(2000);
+
+        d3.select("#container2")
+          .transition(t)
+          .style("background-color", "blue");
+    </script>
+</body>
+</html>
