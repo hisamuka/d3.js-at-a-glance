@@ -1,0 +1,57 @@
+<!doctype html>
+<html>
+<head>
+    <link rel="stylesheet" href="reset.css">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        svg rect {
+            fill: orange;
+        }
+
+        svg text {
+            fill: white;
+            font: 10px sans-serif;
+            text-anchor: start;
+        }
+    </style>
+</head>
+<body>
+
+<script>
+    let width = 500;
+    let height = 500;
+
+    let data = [10, 15, 20, 25, 30];
+    let colors = ['#ffffcc','#c2e699','#78c679','#31a354','#006837'];
+
+    // creates a SVG element
+    let svg = d3.select("body")
+                .append("svg")
+                .attr("width", width)
+                .attr("height", height);
+
+    // creates and bounds a circle (<g> element) for each data element
+    let g = svg.selectAll("g")
+               .data(data)
+               .enter()
+               .append("g")
+               .attr("transform", "translate(0,0)");
+
+    // create, position, and append a <circle> element for each <g>
+    g.append("circle")
+     .attr("cx", (d, i) => i*100 + 50)
+     .attr("cy", (d, i) => 100)
+     .attr("r", d => d*1.5)
+     .attr("fill", (d, i) => colors[i]);
+
+    // create, position, and append a <text> element for each <g>
+    g.append("text")
+     .attr("x", (d, i) => i * 100 + 40)
+     .attr("y", 105)
+     .attr("stroke", "teal")
+     .attr("font-size", "12px")
+     .attr("font-family", "sans-serif")
+     .text(d => d);
+</script>
+</body>
+</html>
