@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+
+    <script>
+        // What if number of elements (nodes) and data values are not matching?
+        // In such cases, we cannot get our selection using only select() and selectAll() because they may either return
+        // lesser elements than your dataset, or no selections at all, if the html code is not in place.
+        //
+        // The enter() method dynamically creates placeholder references corresponding to the number of data values.
+        // The output of enter() can be fed to append() method and append() will create DOM elements for which
+        // there are no corresponding DOM elements on the page.
+
+        var data = [4, 1, 6, 2, 8, 9];
+        var body = d3.select("body") // selects the HTML Body.
+
+            .selectAll("span") // At this point, there are no span elements in the body. So this will return an empty array.
+
+            .data(data) // We provide our data array to the data() function.
+                        // Since our array has six elements, the code after this will run six times for every element in the array.
+
+            .enter() // The enter() function checks for <span> elements corresponding to our five array elements.
+                     // Since it does not find any, it will create a span for each of the five elements.
+
+            .append("span") // And this will append above created spans to the body element.
+
+            .text(d => d + " "); // And finally our text function adds each of the numbers
+                                 // from the data array as text to each of our span selections and
+                                 // prints them onto the screen!
+    </script>
+</body>
+</html>

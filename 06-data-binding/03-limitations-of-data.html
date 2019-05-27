@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <p>D3 Tutorials </p>
+
+    <script>
+        var myData = [1, 2, 3, 4, 5];
+
+        // Since we only have one <p> element, only the first data element bound to the one available paragraph element.
+        // But what happened to the rest of the data elements?
+        // Rest of the data elements from the array were ignored because there were no other <p> elements.
+        //
+        // To handle such scenarios, where we are not aware of the number of data elements in our dataset and DOM elements, d3 provides the enter() function.
+        var p = d3.select("body")
+            .selectAll("p")
+            .data(myData)
+            .text((d, i) => d);
+    </script>
+</body>
+</html>

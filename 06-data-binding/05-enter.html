@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <span></span>
+    <span></span>
+
+    <script>
+        var data = [4, 1, 6, 2, 8, 9];
+
+        d3.select("body") // selects the HTML Body.
+          .selectAll("span") // selects the two <span> elements.
+          .data(data) // binds the data with the existing <span> elements
+            .text(function(d) { return d + " "; }) // sets the text of the existing <span> elements
+
+            .enter() // create a <span> element for each remaining four unbound data element
+            .append("span") // this will append above created spans to the body element.
+            .text(d => d + " "); // sets the text of the existing <span> elements
+    </script>
+</body>
+</html>

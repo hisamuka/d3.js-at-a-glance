@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+
+<body>
+
+
+
+
+    <script>
+        var matrix = [
+            [1, 2, 3, 4],
+            [5, 6, 7, 8],
+            [9, 10, 11, 12],
+            [13, 14, 15, 16]
+        ];
+
+        // creates a <table> with a <tr></tr> for each matrix row
+        var tr = d3.select("body")
+                   .append("table")   // adds <table>
+                   .selectAll("tr")   // selects all <tr>
+                   .data(matrix)      // joins matrix array - binds a matrix row for each <tr></tr>
+                   .enter()           // create placeholders for each row in the array
+                   .append("tr");     // create <tr> in each placeholder
+
+
+
+        var td = tr.selectAll("td")
+                   // The <tr> elements was already bounded with pre-existing data: one matrix row/1D array per <tr>.
+                   // We want to bound each column element of the row for the corresponding <td> elements from <tr>.
+                   // For that, we specified a function as a parameter in the data() to bound this 1D array to the <td> elements.
+                   // The parameter d corresponds to this 1D array.
+                   // Thus, we want to associate each one of the four elements with the corresponding <td> elements.
+                   // d is just a convention name, but we could use other name, like mat_row_arr
+                   .data(d => {
+                       console.log(d);
+                       return d;
+                   })
+
+                    // create placeholders for each element in the matrix row
+                   .enter()
+
+                   // creates <td> in each placeholder
+                   .append("td")
+
+                    // The data bounded for the <td> elements are the column elements of the given matrix row (1D array)
+                    // of the current <tr>.
+                    // Therefore, the parameter d of the function is the "column element" and not the matrix row.
+                    // d is just a convention name, but we could use other name, like col_elem
+                   .text(d => {
+                       console.log(d);
+                       return d; // add value of each inner array as a text in <td>
+                   });
+    </script>
+</body>
+</html>

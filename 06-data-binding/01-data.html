@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+
+    <p>D3 Tutorials</p>
+
+    <script>
+        // D3 is data driven.
+        // The data() function is used to join the specified array of data to the selected DOM elements and
+        // return the updated selection.
+        // D3 works with different types of data like Array, CSV, TSV, JSON, XML etc.
+        // You can pass two types of value to the data() function, an array of values (number or object) or a function of data.
+
+
+        var myData = ["Hello World!"];
+
+        var p = d3.select("body") // selects the HTML Body element.
+
+                  .selectAll("p") // returns the paragraph element.
+                                  // Since there is only one paragraph element, this will return a selection with one <p> element object.
+
+                  .data(myData)   // binds our data array 'myData' to the selection returned from the previous selection.
+                                  // This function requires an array as parameter
+                                  // Since our selection has single p element, the data() function will bind
+                                  // the first value from our data array to the <p> element.
+
+                  // this text function adds the data as text to each of our selection element.
+                  // Each array value is passed as the first argument (d) to text function.
+                  // In this case, an existing text from paragraph element, 'D3 tutorial', will get replaced
+                  // with the first array value 'Hello World'.
+                  .text(d => d); // arrow function similarly to the anonymous function below
+
+                  // .text(function (d) {
+                  //     return d;
+                  // });
+    </script>
+</body>
+</html>
