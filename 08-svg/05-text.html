@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+
+    <script>
+        // We have taken the same ellipse example above and added text to the ellipse.
+        // You might notice that we have introduced a new <g> group element here.
+        // The <g> element is used when you would like to group certain SVG elements together.
+        // In our case, we are using <g> to hold our <ellipse> and <text> elements together.
+        // The group element comes in handy for applying transformations so that the transformations are applied
+        // to all the child elements of a group.
+
+        let width = 500;
+        let height = 500;
+
+        //Create SVG element
+        let svg = d3.select("body")
+                    .append("svg")
+                    .attr("width", width)
+                    .attr("height", height);
+
+        //Create group element
+        let g = svg.append("g")
+                   .attr("transform", "translate(0,0)");
+
+        //Create and append ellipse element into group
+        let ellipse = g.append("ellipse")
+                       .attr("cx", 250)
+                       .attr("cy", 50)
+                       .attr("rx", 150)
+                       .attr("ry", 50)
+                       .append("text");
+
+        //Create and append text element into group
+        g.append("text")
+         .attr("x", 150)
+         .attr("y", 50)
+         .attr("stroke", "#fff")
+         .text("This is an ellipse!");
+    </script>
+</body>
+</html>
