@@ -14,7 +14,7 @@
 
     <script>
         // While enter() is used to add new reference nodes, exit is used to remove a node.
-        var myData = ["Hello World!", "D3.js"];
+        let myData = ["Hello World!", "D3.js"];
 
         // Removes all unbounded <p> elements with `myData`.
         // With exit(), the elements enter an exit phase.
@@ -22,7 +22,7 @@
         // when the command is given. And that command is remove().
         //
         // remove() will remove all the 'exited' nodes from the DOM.
-        var p = d3.select("body")
+        let p = d3.select("body")
                   .selectAll("p")
                   .data(myData)
                   .text(d => d)

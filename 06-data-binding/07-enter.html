@@ -12,7 +12,7 @@
 
 
     <script>
-        var matrix = [
+        let matrix = [
             [1, 2, 3, 4],
             [5, 6, 7, 8],
             [9, 10, 11, 12],
@@ -20,7 +20,7 @@
         ];
 
         // creates a <table> with a <tr></tr> for each matrix row
-        var tr = d3.select("body")
+        let tr = d3.select("body")
                    .append("table")   // adds <table>
                    .selectAll("tr")   // selects all <tr>
                    .data(matrix)      // joins matrix array - binds a matrix row for each <tr></tr>
@@ -29,7 +29,7 @@
 
 
 
-        var td = tr.selectAll("td")
+        let td = tr.selectAll("td")
                    // The <tr> elements was already bounded with pre-existing data: one matrix row/1D array per <tr>.
                    // We want to bound each column element of the row for the corresponding <td> elements from <tr>.
                    // For that, we specified a function as a parameter in the data() to bound this 1D array to the <td> elements.

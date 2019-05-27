@@ -12,12 +12,12 @@
     <p></p>
 
     <script>
-        var myData = ["Hello World!", "Hello D3","Hello JavaScript"];
+        let myData = ["Hello World!", "Hello D3","Hello JavaScript"];
 
         // HTML includes three <p> elements and data array myData also includes three values.
         // So, data() joins three data values to three selected <p> elements respectively and text()
         // function displays this data value as a text. Let's take a look at another example.
-        var p = d3.select("body")
+        let p = d3.select("body")
             .selectAll("p")
             .data(myData)
             .text((d, i) => d);

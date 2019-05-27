@@ -19,7 +19,7 @@
         // Note that we don't have any data, so d will be null for each DOM element.
         // However, i will provide the index for each DOM element.
         d3.selectAll("p").style("color", (d, i) => {
-            var text = this.innerText;
+            let text = this.innerText;
 
             if (text.indexOf("Error") >= 0) {
                 return "red";
