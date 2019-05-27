@@ -1,0 +1,18 @@
+<!doctype html>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+<p>First paragraph</p>
+<p>Second paragraph</p>
+
+<p id="p3">Third paragraph</p>
+
+<script>
+    // The d3.select() method returns the first element in the HTML document based on specified css-elector.
+    d3.select("p").style("color", "green");
+    d3.select("#p3").style("color", "blue");
+</script>
+</body>
+</html>

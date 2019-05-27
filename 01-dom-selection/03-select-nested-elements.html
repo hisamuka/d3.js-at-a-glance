@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <table>
+        <tr>
+            <td>
+                One
+            </td>
+            <td>
+                Two
+            </td>
+        </tr>
+        <tr id="second-tr">
+            <td>
+                Three
+            </td>
+            <td>
+                Four
+            </td>
+        </tr>
+    </table>
+
+    <script>
+        // The select() and selectAll() method can be used to select nested elements as shown below.
+
+        // selects the first <tr>, then for each one of its <td>, apply the style
+        d3.select("tr").selectAll("td").style('background-color', 'yellow');
+
+        // only change the first <td> of the the element with id="second-tr"
+        d3.select("#second-tr td").style('background-color', 'red');
+
+        // change all <td> inside <tr>
+        d3.selectAll("tr td").style('font-weight', 'bold');
+    </script>
+</body>
+</html>

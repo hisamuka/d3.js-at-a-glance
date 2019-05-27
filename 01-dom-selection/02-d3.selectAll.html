@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+    <meta http-equiv="Content-type" content="text/html; charset=utf-8"/>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+
+    <p class="myclass ">Third paragraph</p>
+    <p class="myclass ">Fourth paragraph</p>
+
+    <script>
+        // The d3.selectAll() method returns all the matching elements in the HTML document based on specified CSS selector.
+        d3.selectAll("p").style("color", "green");
+        d3.selectAll(".myclass").style("color", "red");
+    </script>
+</body>
+</html>
