@@ -1,0 +1,27 @@
+<!doctype html>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        .error {
+            color: 'red'
+        }
+    </style>
+</head>
+
+<body>
+    <p>Error:</p>
+
+    <script>
+        // Use d3.selection.classed() method to set class attribute or modify classList property to the selected elements.
+
+        // We can use the classed method to apply or remove css classes to our selections.
+        // In this example, d3.select("p") selects the <p> element and then classed('myclass', true) applies the
+        // class 'error' to the selected <p> element.
+        //
+        // The second attribute in the classed method is a Boolean. If passed true, it adds the class to the
+        // selected element and if false, it removes the class from the selected element.
+        d3.select("p").classed('error', true);
+    </script>
+</body>
+</html>

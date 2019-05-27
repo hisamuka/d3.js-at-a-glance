@@ -1,0 +1,19 @@
+<!doctype html>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <p>First paragraph</p>
+
+
+    <script>
+        // The d3.selection.html() method sets inner html of selected elements.
+
+        // In the above example, d3.select("p") selects the paragraph element.
+        // .html("This was added in HTML ") replaces the inner html of the selected <p> element.
+        // So, the original HTML 'First paragraph' was replaced with "<strong>This was added in HTML</strong>".
+        d3.select("p").html("<strong>This was added in HTML</strong>");
+    </script>
+</body>
+</html>

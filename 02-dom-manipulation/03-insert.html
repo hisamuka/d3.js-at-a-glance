@@ -1,0 +1,21 @@
+<!doctype html>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <div>
+        <p>First paragraph.</p>
+    </div>
+
+    <script>
+        // Use d3.selection.insert() method to create a new element and insert it into the selected element
+        // BEFORE its ending tag.
+
+        // d3.select("div") selects div element. Then, .insert("p") creates new <p> element and adds it
+        // just before the end of the div tag.
+        // The insert("Second paragraph.") sets the text of inserted <p> element.
+        d3.select("div").insert("p").text("Second paragraph.");
+    </script>
+</body>
+</html>

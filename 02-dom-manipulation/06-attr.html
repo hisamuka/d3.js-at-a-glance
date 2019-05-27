@@ -1,0 +1,25 @@
+<!doctype html>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+    <style>
+        .error {
+            color: red
+        }
+    </style>
+</head>
+
+<body>
+    <p>Error: This is dummy error.</p>
+
+
+    <script>
+        // Use d3.selection.attr() method to apply attributes on the selected DOM elements.
+
+        // d3.select("p") selects the <p> element and .attr("class","error") applies class attribute
+        // to the paragraph element.
+        // You can use attr() method to set any valid attribute to any selected DOM element.
+        d3.select("p").attr("class", "error");
+    </script>
+</body>
+</html>

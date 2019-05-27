@@ -1,0 +1,20 @@
+<!doctype html>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <p>First paragraph</p>
+    <p>Second paragraph</p>
+
+    <script>
+        // Use d3.selection.append(name) method to create a new DOM element with the specified name and add it
+        // at the end of selected DOM element.
+        // The name may be specified either as a constant string or as a function that returns the
+        // DOM element to append.
+
+        // D3 creates a new <p> element with a text and a style, and adds it before the ending body tag </body>
+        d3.select("body").append("p").text("Third paragraph.").style("color", "blue");
+    </script>
+</body>
+</html>
