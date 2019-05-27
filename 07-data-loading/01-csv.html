@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+
+    <script>
+        // We can load a csv file or csv data using d3.csv() method.
+        //
+        // d3.csv(url[, row, callback]);
+        //
+        // The first parameter is the url of .csv file, or webapi, or webservice which will return csv data.
+        // The second optional parameter is a conversion function which allows us to change the representation.
+        // The third optional parameter is a callback function which will be executed once the .csv file/data is loaded.
+        // It passes parsed data object as a parameter to callback function.
+
+        // D3 function d3.csv() takes a file name as an input, processes the file and loads the data into an array of objects.
+        // Note that the first row of the csv file does not get printed.
+        // This is because the first row is treated as the column name and rest of the rows are considered as the data.
+        // The data object loaded by d3 uses these column names as the object's properties and hence are converted to object keys.
+        //
+        // d3.csv() returns the data as an object.
+        // This object is an array of objects loaded from your csv file where each object represents one row of your csv file.
+        d3.csv("employees.csv", data => {
+            for (let i = 0; i < data.length; i++) {
+                console.log(data[i].Name);
+                console.log(data[i].Age);
+            }
+        });
+
+
+        // these three ways to get csv data are equivalent
+        d3.csv("employees.csv", data => console.log(data));
+
+        d3.csv("employees.csv").get(data => console.log(data));
+
+        my_csv = d3.csv("employees.csv");
+        my_csv.get(data => console.log(data));
+
+        // Use row parameter to convert representation of the data.
+        d3.csv("employees.csv")
+          .row(d => {
+              return {
+                  Age: d.Age,
+                  Name: d.Name.toUpperCase() // converting name to upper case
+              }
+          })
+          .get(data => console.log(data));
+    </script>
+</body>
+</html>

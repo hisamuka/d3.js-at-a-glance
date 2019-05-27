@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+
+    <script>
+        // We loaded this file using d3.json().
+        // The d3.json() method returned a formatted data object.
+        // It also returned an argument "error".
+        d3.json("users.json", (error, data) => {
+            d3.select("body") // select the body element.
+              .selectAll("p") // each element of our json file will be put inside a <p>
+              .data(data) // bind the data to the <p> elements
+              .enter()  // creates a placeholder (<p> element for this case) for each data element not bounded with existing <p>.
+                        // In this example, it will create a placeholder for all data elements
+              .append("p") // append the placeholder elements as <p> elements
+              .text(d => d.name + ", " + d.location);
+        });
+    </script>
+</body>
+</html>
