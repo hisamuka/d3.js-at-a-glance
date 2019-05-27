@@ -34,12 +34,22 @@
 
         let color = d3.scaleOrdinal(['#4daf4a','#377eb8','#ff7f00','#984ea3','#e41a1c']);
 
+        // Since we want to plot the percentage values, we have used an anonymous function to return d.percent and set it as the pie value.
         let pie = d3.pie().value(d => d.percent);
 
+        // We define our arcs for each of the pie wedges.
+        // This arc will be set to the path elements.
+        // We provide the calculated radius to the outerradius and innerradius is set to 0.
         let path = d3.arc()
                      .outerRadius(radius - 10)
                      .innerRadius(0);
 
+        // We are also showing labels for the different browsers.
+        // We have this data in the 'browser' attribute in our dataset.
+        //
+        // Labels are also defined as d3.arc().
+        // We can decide where to add the labels in our wedges by providing radius.
+        // You can tweak the values to see where your labels would look the best in your visualization.
         let label = d3.arc()
                       .outerRadius(radius)
                       .innerRadius(radius - 80);
