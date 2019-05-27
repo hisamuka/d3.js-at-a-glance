@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+    <style>
+        div {
+            height: 100px;
+            width: 100px;
+            background-color: steelblue;
+            margin:5px;
+        }
+    </style>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+
+<body>
+    <div> </div>
+    <script>
+        // D3 also supports built-in events and custom events. We can bind an event listener to any DOM element
+        // using d3.selection.on() method.
+        // d3.selection.on(type[, listener[, capture]]);
+        //
+        // The on() method adds an event listener to all selected DOM elements.
+        // The first parameter is an event type as string such as "click", "mouseover" etc.
+        // The second parameter is a callback function which will be executed when an event occurs and
+        // the third optional parameter capture flag may be specified, which corresponds to the W3C useCapture
+        //
+        // selection.on() ==> Add or remove event listeners to capture event types like click, mouseover, mouseout etc.
+        // selection.dispatch()	==> Captures event types like click, mouseover, mouseout. Typenames is the eventname, listener is the event listener
+        // d3.event	==> Event object to access standard event fields such as timestamp or methods like preventDefault
+        // d3.mouse(container) ==> Gets the x and y coordinates of the current mouse position in the specified DOM element.
+        // d3.touch() ==> Gets the touch coordinates to a container
+
+        // We CANNOT use arrow functions for D3 when we wish to manipulate the this object.
+        // See more on: https://medium.com/@yonester/on-d3-and-arrow-functions-b6559c1cebb8
+        d3.selectAll("div")
+          .on("mouseover", function() {
+              d3.select(this).style("background-color", "orange");
+
+              // Get current event info
+              console.log(d3.event);
+
+              // Get x & y co-ordinates
+              console.log(d3.mouse(this));
+          })
+          .on("mouseout", function() {
+              d3.select(this)
+                .style("background-color", "steelblue")
+          })
+          .on("click", () => { // arrow functions works here, because we do not manipulate the this object
+              alert("Click");
+        });
+    </script>
+</body>
+</html>
