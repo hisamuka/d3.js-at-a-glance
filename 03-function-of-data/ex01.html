@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+
+<body>
+    <p></p>
+    <p></p>
+    <p></p>
+
+    <script>
+        // Each of the DOM manipulation functions can take in a constant value or a function as a parameter.
+        // This function is a function of data.
+        // So each of these methods will be called for each of our data values (from an array, for example) bound to the DOM.
+        //
+        // Within this function, we can apply any logic to manipulate the data.
+        // These are anonymous functions, meaning that there is no name associated with the function.
+        // They can accept one parameter (only the current data) or two (current data and its index)
+
+
+        var data = [1, 2, 3];
+
+        d3.select("body")
+          .selectAll("p")
+          .data(data)
+          .text(function (d, i) {
+              console.log("d: " + d); // the data element
+              console.log("i: " + i); // the index element
+              console.log("this: " + this); // the current DOM object
+
+              return d;
+          });
+
+        //  The data() function provides data to the selected elements, in our case it is data array.
+    </script>
+</body>
+</html>
