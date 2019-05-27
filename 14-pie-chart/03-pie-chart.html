@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <svg width="300" height="200"> </svg>
+
+    <script>
+        let data = [2, 4, 8, 10];
+
+        let svg = d3.select("svg");
+        let width = svg.attr("width");
+        let height = svg.attr("height");
+        // We calculate the radius as Math.min(width, height) / 2 to ensure that our generated pie will fit into the bounds of the SVG.
+        // For this, we choose whichever of the width and height is the minimum value.
+        let radius = Math.min(width, height) / 2;
+        let g = svg.append("g").attr("transform", "translate(" + width / 2 + "," + height / 2 + ")");
+
+        let color = d3.scaleOrdinal(['#4daf4a','#377eb8','#ff7f00','#984ea3','#e41a1c']);
+
+        // The d3.pie() function takes in a dataset and creates handy data for us to generate a pie chart in the SVG.
+        // It calculates the start angle and end angle for each wedge of the pie chart.
+        // These start and end angles can then be used to create actual paths for the wedges in the SVG.
+        //
+        // This will generate our pie values like startAngle and endAngle.
+        let pie = d3.pie();
+
+        // The d3.arc() generates an arc.
+        // These are the paths that will create our pie's wedges.
+        // Arcs need an inner radius and outer radius. If the inner radius is 0, the result will be a piechart,
+        // otherwise the result will be a donut chart.
+        // We need to supply these generated arcs to our SVG path elements.
+        //
+        // We define our arc with an inner radius of 0 and outer radius as the radius calculated earlier.
+        // This will be used to give paths to our pie wedges.
+        let arc = d3.arc()
+                    .innerRadius(0)
+                    .outerRadius(radius);
+
+
+        // Now, we create group elements for each of our data values.
+        // This group element will hold our individual paths or wedges.
+        let arcs = g.selectAll("arc")
+            .data(pie(data))
+            .enter()
+            .append("g")
+            .attr("class", "arc");
+
+
+        // We add a path element for each of our wedges.
+        // We provide the arc generated earlier and fill it with a color from our color scale.
+        arcs.append("path")
+            .attr("fill", (d, i) => color(i))
+            .attr("d", arc);
+    </script>
+</body>
+</html>

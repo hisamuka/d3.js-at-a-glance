@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <script>
+        // The d3.scaleOrdinal() constructs a new ordinal scale with an empty domain and the specified range.
+        // In an ordinal scale, the order is of utmost importance and not the difference.
+
+        let color = d3.scaleOrdinal(['#4daf4a','#377eb8','#ff7f00','#984ea3','#e41a1c']);
+
+        console.log(color(0));
+        console.log(color(1));
+        console.log(color(2));
+        console.log(color(3));
+        console.log(color(4));
+        console.log(color(5));
+
+        // In the above example, the color variable will act as a scaling function which will return specified
+        // color for the specified index.
+        // For example, color(0) will return #4daf4a, color(1) will return #377eb8 color(2) will return #ff7f00 and so on.
+        // If a value at the specified index does not exists in the specified range then it will restart from 0. i.e.
+        // range does not contain element at 5th index (index starts with 0), so it will start again from 0 and will return #4daf4a.
+    </script>
+</body>
+</html>

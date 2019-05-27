@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <script src="https://d3js.org/d3.v4.min.js"></script>
+</head>
+<body>
+    <!--
+    <path> = defines a SVG path.
+
+    It accepts the commands:
+    M = moveto
+    L = lineto
+    H = horizontal lineto
+    V = vertical lineto
+    C = curveto
+    S = smooth curveto
+    Q = quadratic Bézier curve
+    T = smooth quadratic Bézier curveto
+    A = elliptical Arc
+    Z = closepath
+
+    The example below define the following path starting from the point (150,0),
+    creates a line from (150,0) to (75,200), another line from (75,200) to (225,200) and
+    finally a closing path to (150,0).-->
+    <svg height="210" width="400">
+        <path d="M150 0 L75 200 L225 200 Z" />
+    </svg>
+</body>
+</html>
